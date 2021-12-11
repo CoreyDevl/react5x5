@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as C from './App.styles';
 import { Item } from './types/Item';
 import {ListItem} from './components/ListItem';
-
+import { AddArea } from './components/AddArea';
 const App = () => {
 
 const [list, setList] = useState<Item[]>([
@@ -10,12 +10,22 @@ const [list, setList] = useState<Item[]>([
   {id: 2, name: 'Ficar tranquilo', done: true},
 ]);
 
+  const handleAddTask = (taskName: string) => {
+    let newList = [...list];  /* fiz um clone da lista, e depois o setList*/
+    newList.push({
+      id: list.length + 1,
+      name: taskName,
+      done: false
+    })
+    setList(newList);
+  }
+
   return (
     <C.Container>
       <C.Area>
         <C.Header>Lista de Tarefas</C.Header>
 
-        {/*area do input de text*/}
+        <AddArea onEnter={handleAddTask} />
         {list.map((item, index)=>(
           <ListItem key={index} item={item} />))}
 
