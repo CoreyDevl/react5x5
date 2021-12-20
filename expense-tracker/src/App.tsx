@@ -27,8 +27,8 @@ const App = () => {
       <C.Body>
         {/*area de informações*/}
         {/*area de inserção*/}
-        <TableArea list={filteredList} />
-        {console.log(list)} 
+        <TableArea list={items} />
+        {console.log(items[0])} 
       </C.Body>
     </C.Container>
   )
