@@ -19,3 +19,10 @@ export const filterListByMonth = (list: Item[], date: string):Item[] => {
 
  return newList;
 }
+
+export const formatDate = (date: Date): string => {
+  let year = date.getUTCFullYear();
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+  return `${day}/${month}/${year}`;
+}
